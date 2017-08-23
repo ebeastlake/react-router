@@ -4,29 +4,8 @@ import axios from 'axios';
 
 export default class AllAlbums extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      albums: []
-    };
-
-  }
-
-  componentDidMount () {
-    axios.get('/api/albums/')
-      .then(res => res.data)
-      .then(albums => {
-        this.setState({
-          albums
-        });
-      });
-  }
-
   render () {
-    const albums = this.state.albums;
-    // const selectAlbum = this.props.selectAlbum;
-    // console.log(this.props);
+    const albums = this.props.albums || [];
 
     return (
       <div>
@@ -35,7 +14,7 @@ export default class AllAlbums extends Component {
         {
           albums.map(album => (
             <div className="col-xs-4" key={ album.id }>
-              <Link to={`/single-album/${album.id}`} className="thumbnail" href="#" onClick={() => selectAlbum(album.id)}>
+              <Link to={`/single-album/${album.id}`} className="thumbnail">
                 <img src={ album.imageUrl } />
                 <div className="caption">
                   <h5>

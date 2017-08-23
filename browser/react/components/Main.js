@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import AllAlbums from './AllAlbums';
+import StatefulAlbums from './StatefulAlbums';
 import AllArtists from './AllArtists';
 import SingleAlbum from './SingleAlbum';
 import Sidebar from './Sidebar';
 import Player from './Player';
+import SingleArtist from './SingleArtist'
 import {Route, HashRouter} from "react-router-dom";
 
 export default class Main extends Component {
@@ -20,10 +21,11 @@ export default class Main extends Component {
             <Sidebar />
           </div>
             <div className="col-xs-10">
-              <Route exact path='/' component={AllAlbums} />
-              <Route exact path='/albums' component={AllAlbums} />
+              <Route exact path='/' component={StatefulAlbums} />
+              <Route exact path='/albums' component={StatefulAlbums} />
               <Route exact path='/artists' component={AllArtists} />
-              <Route exact path='/single-album/:albumId' component={SingleAlbum} /> 
+              <Route exact path='/single-album/:albumId' component={SingleAlbum} />
+              <Route path='/artists/:artistId' component={SingleArtist} />
             </div>
           <Player />
         </div>

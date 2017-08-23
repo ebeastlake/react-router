@@ -34,7 +34,7 @@ export default class AllArtists extends Component {
           artists.map(artist => (
             <div className="list-group-item" key={artist.id}>
             {/* determine where to actually Link to later! */}
-              <Link to="/albums">{ artist.name }</Link>   
+              <Link to={`/artists/${artist.id}`}>{ artist.name }</Link>
             </div>
             ))
         }
